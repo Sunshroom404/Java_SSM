@@ -82,3 +82,8 @@ public class UserController {
         return "redirect:/user/findAll.do";
     }
 }
+
+/*
+git remote add origin git@github.com:Yuk1n0/Java_SSM.git
+git push -u origin master
+ */

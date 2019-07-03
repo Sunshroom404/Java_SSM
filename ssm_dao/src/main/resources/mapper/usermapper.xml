@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhongruan.dao.UserDao" >
+    <select id="findAll" resultType="com.zhongruan.bean.UserInfo">
+    select * from userinfo
+    </select>
+
+    <select id="doLogin" parameterType="com.zhongruan.bean.UserInfo" resultType="com.zhongruan.bean.UserInfo">
+        select * from userinfo where username=#{username} and password=#{password}
+    </select>
+
+    <insert id="save" parameterType="com.zhongruan.bean.UserInfo">
+        insert into userinfo (id,username,password) values (#{id},#{username},#{password})
+    </insert>
+
+    <delete id="delete" parameterType="long">
+        DELETE FROM userinfo WHERE id=#{id};
+    </delete>
+
+    <update id="update"  parameterType="com.zhongruan.bean.UserInfo">
+        UPDATE userinfo
+        SET username = #{username},password = #{password}
+        WHERE  id = #{id}
+    </update>
+
+    <select id="queryById" resultType="com.zhongruan.bean.UserInfo" parameterType="long">
+        SELECT id,username,password
+        FROM userinfo
+        WHERE id=#{id}
+    </select>
+
+    <select id="findByUserName" parameterType="String" resultType="com.zhongruan.bean.UserInfo">
+        select * from userinfo where username=#{username}
+    </select>
+
+</mapper>
